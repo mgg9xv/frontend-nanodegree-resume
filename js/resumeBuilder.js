@@ -5,7 +5,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
 var bio = {
     "name": "Michael Gilbertson",
-    "role": "Web developer",
+    "role": "&#60;!-- Web Developer --&#62;",
     "welcomeMessage": "Welcome to my resume!",
     "contacts": {
         "mobile": "703-343-3735",
@@ -15,8 +15,17 @@ var bio = {
         "location": "Washington DC"
     },
     "picture": "images/my_picture.jpg",
-    "skills": ["HTML", "CSS", "JavaScript", "jQuery","Bootstrap"],
+    "skills": [
+        { "data":" HTML5", "class": "red"},
+        { "data": "CSS3", "class": "lightblue"},
+        { "data": "JavaScript", "class": "yellow" },
+        { "data": "jQuery", "class": "blue"},
+        { "data": "Bootstrap", "class": "purple"},
+        { "data": "Angular", "class": "lightred"},
+        { "data": "Java", "class": "green"},
+    ],
     "display": function() {
+        $("#header").prepend(HTMLbioPic.replace("%data%", bio.picture));
         $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
         $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
         $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
@@ -24,12 +33,12 @@ var bio = {
         $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
         $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
         $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-        $("#header").append(HTMLbioPic.replace("%data%", bio.picture));
-        $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+        // $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
         if(bio.skills.length > 0){
             $("#header").append(HTMLskillsStart);
             bio.skills.forEach(function(skill){
-                var formattedSkill = HTMLskills.replace("%data%", skill);
+                var formattedSkill = HTMLskills.replace("%data%", skill.data);
+                formattedSkill = formattedSkill.replace("%class%", skill.class);
                 $("#skills").append(formattedSkill);
             });
         }
@@ -86,15 +95,21 @@ var work = {
 var projects = {
     "projects": [
         {
-            "title": "Resume",
+            "title": "Online Resume",
             "dates": "February 2016",
-            "description": "",
+            "description": "A interactive resume created as part of Udacity's Front-end Web Developer Nanodegree",
             "images": []
         },
         {
-            "title": "Portfolio",
+            "title": "Responsive Portfolio",
             "dates": "February 2016",
-            "description": "",
+            "description": "A responsive portfolio created as part of Udacity's Front-end Web Developer Nanodegree",
+            "images": []
+        },
+        {
+            "title": "PixelPad",
+            "dates": "January 2016",
+            "description": "A pixel sketchpad for creating small images such as favicons.",
             "images": []
         }
     ],
@@ -185,12 +200,12 @@ function locationizer(work_obj){
     return locations;
 }
 
-function inName(name) {
-    var names = name.trim().split(" ");
+function inName() {
+    var names = $("#name").html().split(" ");
     names[0] = names[0].charAt(0).toUpperCase() + names[0].slice(1, names[0].length);
     names[1] = names[1].toUpperCase();
     return names.join(" ");
 }
 
-$("#main").append(internationalizeButton);
+// $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
