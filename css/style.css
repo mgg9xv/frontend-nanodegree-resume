@@ -15,6 +15,10 @@ h6 {
     color: white;
 }
 
+body {
+    background-color: #59ace5;
+}
+
 .clear-fix {
     overflow: auto;
 }
@@ -31,6 +35,7 @@ h1 {
     color: white;
     line-height: 48px;
     display: inline;
+    margin: 10px;
 }
 
 h2 {
@@ -84,6 +89,10 @@ p {
     line-height: 21px;
 }
 
+hr {
+    color: white;
+}
+
 a {
     color: #1199c3;
     text-decoration: none;
@@ -96,6 +105,10 @@ a {
     font-size: 18px;
     color: #f3f3f3;
     line-height: 28px;
+}
+
+.role {
+    display: inline-block;
 }
 
 #skills-h3 {
@@ -123,11 +136,20 @@ a {
     clear:both;
 }
 
+.white {
+    background-color: white;
+    color: black;
+    padding-bottom: 10px;
+    clear:both;
+}
+
 .skill {
-    padding: 5px 25px 5px 25px;
+    padding: 5px 0 5px 0;
+    margin: 5px;
     flex-grow: 1;
     text-align: center;
-    /*border-radius : 5px;*/
+    border-radius : 5px;
+    width: 20%;
 }
 
 #skills {
@@ -201,8 +223,13 @@ ul {
 .biopic {
     float: left;
     width: 175px;
-    /*border-radius: calc(100%/2);*/
+    /*border: 5px solid white;*/
+    /*padding: 5px;*/
+    padding: 0;
+    border-radius: 50%;
+    outline-radius: 50%;
     display: none;
+    /*box-shadow: 10px 10px 5px #2f2929;*/
 }
 
 img {
@@ -213,8 +240,20 @@ img {
     padding: 0;
 }
 
+.pane {
+    border-top: 1px #59ace5 solid;
+}
+
 span {
     padding: 5px;
+}
+
+#map-title:hover {
+    text-decoration: underline;
+}
+
+.title:hover {
+    text-decoration: underline;
 }
 
 #lets-connect {
@@ -225,12 +264,6 @@ span {
 
 /* Media queries to handle various device widths */
 
-@media only screen and (max-width: 1024px) {
-    #lets-connect {
-        margin-top: 5%;
-    }
-}
-
 @media only screen and (max-width:900px) {
     .biopic {
         width: 175px;
@@ -238,16 +271,27 @@ span {
 }
 
 @media only screen and (max-width: 750px) {
-    #lets-connect {
-        margin-top: 10%;
-    }
     .biopic {
         width: 150px;
     }
     .welcome-message {
         display: none;
     }
+
+    .skill {
+        width: 30%;
+    }
 }
+
+@media only screen and (max-width: 600px) {
+    #header {
+        text-align: center;
+    }
+}
+
+
+
+
 
 #map {
     display: block;
@@ -258,7 +302,7 @@ span {
 #mapDiv {
     height: 400px;
     width: 100%;
-    padding-bottom: 5%;
+    margin-bottom: 5%;
 }
 
 @media only screen and (min-width: 750px) {
@@ -266,4 +310,8 @@ span {
     .biopic {
         display: block;
     }
+}
+
+.hidden {
+    display: none;
 }

@@ -1,8 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-//TODO: Make a timeline element using D3
-
 var bio = {
     "name": "Michael Gilbertson",
     "role": "&#60;!-- Web Developer --&#62;",
@@ -25,9 +20,9 @@ var bio = {
         { "data": "Java", "class": "green"},
     ],
     "display": function() {
-        $("#header").prepend(HTMLbioPic.replace("%data%", bio.picture));
         $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
         $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+        $("#header").prepend(HTMLbioPic.replace("%data%", bio.picture));
         $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
         $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
         $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
@@ -78,7 +73,7 @@ var work = {
     ],
     "display": function() {
         work.jobs.forEach(function(job) {
-            $("#workExperience").append(HTMLworkStart);
+            $("#work-section").append(HTMLworkStart);
             var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
             var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
             var formattedDates = HTMLworkDates.replace("%data%", job.dates);
@@ -115,7 +110,7 @@ var projects = {
     ],
     "display": function() {
         this.projects.forEach(function(project){
-            $("#projects").append(HTMLprojectStart);
+            $("#projects-section").append(HTMLprojectStart);
             $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
             $(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
             $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
@@ -141,7 +136,8 @@ var education = {
             "name": "Yorktown High School",
             "location": "Arlington VA",
             "dates": "September 2007 - June 2011",
-            "url": "http://www.apsva.us/Domain/2430"
+            "url": "http://www.apsva.us/Domain/2430",
+            "major": "N/A"
         }
     ],
     "onlineCourses": [
@@ -154,7 +150,7 @@ var education = {
     ],
     "display": function() {
         education.schools.forEach(function(school) {
-            $("#education").append(HTMLschoolStart);
+            $("#education-section").append(HTMLschoolStart);
             var formattedName = HTMLschoolName.replace("%data%", school.name);
             var formattedDegree = "";
             if(school.degree !== undefined) {
@@ -164,11 +160,10 @@ var education = {
             $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
             $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
             if(school.major !== undefined)$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.major));
-            $(".education-entry:last").append("<br>");
         });
-        $("#education").append(HTMLonlineClasses);
+        $("#education-section").append(HTMLonlineClasses);
         education.onlineCourses.forEach(function(course){
-            $("#education").append(HTMLschoolStart);
+            $("#education-section").append(HTMLschoolStart);
             var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
             var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
             $(".education-entry:last").append(formattedTitle + formattedSchool);
@@ -178,19 +173,14 @@ var education = {
     }
 };
 
+var map = false;
+
 function displayWork() {
     bio.display();
     work.display();
     projects.display();
     education.display();
 }
-
-displayWork();
-
-$(document).click(function(loc){
-    logClicks(loc.pageX, loc.pageY);
-});
-
 
 function locationizer(work_obj){
     var locations = [];
@@ -207,5 +197,27 @@ function inName() {
     return names.join(" ");
 }
 
-// $("#main").append(internationalizeButton);
-$("#mapDiv").append(googleMap);
+$(document).on('click', '.title', function(){
+    $('.section').addClass('hidden');
+    $('.pane').removeClass('white').addClass('gray');
+    $(this).next('.section').toggleClass('hidden');
+    $(this).parent().removeClass('gray').addClass('white');
+});
+
+$(document).on('click', '#map-title', function(){
+    $('.section').addClass('hidden');
+    $('.pane').removeClass('white').addClass('gray');
+    $(this).next('.section').toggleClass('hidden');
+    $(this).parent().removeClass('gray').addClass('white');
+    if (!map) {
+        $('#mapDiv').append(googleMap);
+        initializeMap();
+    }
+});
+
+displayWork();
+
+/*
+I commented this out because it didn't look right on the screen and I didn't see any use in it
+$("#main").append(internationalizeButton);
+*/
