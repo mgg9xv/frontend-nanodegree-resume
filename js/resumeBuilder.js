@@ -4,9 +4,9 @@ var bio = {
     'welcomeMessage': 'Welcome to my resume!',
     'contacts': {
         'mobile': '703-343-3735',
-        'email': 'gilbertsonmg@gmail.com',
-        'github': 'mgg9xv',
-        'twitter': '@MikeyFairPlay',
+        'email': 'mggwxyz@gmail.com',
+        'github': 'mggwxyz',
+        'twitter': '@mggwxyz',
         'location': 'Washington DC'
     },
     'picture': 'images/my_picture.jpg',
