@@ -1,0 +1,25 @@
+{
+  "name": "frontend-nanodegree-resume",
+  "version": "1.0.0",
+  "description": "A responsive resume for Udacity's Frontend Nanodegree",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mggwxyz.com/mggwxyz/frontend-nanodegree-resume"
+  },
+  "keywords": [
+    "resume",
+    "responsive",
+    "udacity",
+    "frontend",
+    "project"
+  ],
+  "author": "Michael Gilbertson",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
