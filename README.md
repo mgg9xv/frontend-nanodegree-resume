@@ -1,11 +1,12 @@
-# Resume | Frontend Nanodegree
+# Resume | Udacity's Frontend Nanodegree
 
 The purpose of this project was to learn JavaScript by building a resume. This project was part of Udacity's Front-end Web Developer Nanodegree.
 
 
 ## Quick Links
-* [Source Code](https://github.com/mggwxyz/frontend-nanodegree-resume)
 * [Online Demo](https://mggwxyz.github.io/frontend-nanodegree-resume)
+* [Source Code](https://github.com/mggwxyz/frontend-nanodegree-resume)
+
 
 ## Table of Contents
 1. [Downloading the project](#downloading-the-project)
