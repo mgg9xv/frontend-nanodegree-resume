@@ -1,40 +1,33 @@
-# Resume | Udacity's Frontend Nanodegree
+# Udacity's Front-End Web Developer Nanodegree Resume Project
 
-The purpose of this project was to learn JavaScript by building a resume. This project was part of Udacity's Front-end Web Developer Nanodegree.
+The purpose of this project was to learn JavaScript by building a resume. This project was part of Udacity's Front-End Web Developer Nanodegree.
 
-
-## Quick Links
-* [Online Demo](https://mggwxyz.github.io/frontend-nanodegree-resume)
-* [Source Code](https://github.com/mggwxyz/frontend-nanodegree-resume)
-
+Check it out: [https://mggwxyz.github.io/frontend-nanodegree-resume]([https://mggwxyz.github.io/frontend-nanodegree-resume])
 
 ## Table of Contents
-1. [Downloading the project](#downloading-the-project)
-2. [Running the project](#running-the-project)
 
-## Downloading the project <a name="downloading-the-project"></a>
-Clone the repo into a directory using a bash terminal
-```
+1. [Setting up the project](#setting-up-the-project)
+2. [Helpful links](#helpful-links)
+
+## Setting up the project
+Clone the git repository into a directory using a bash terminal
+
+```bash
 git clone https://github.com/mggwxyz/frontend-nanodegree-resume.git
+````
+Navigate into the new directory
+
+```bash
+cd frontend-nanodegree-resume
 ```
+Start the application
+    
+```bash
+npm start
+```
+The application will start up at `http://127.0.0.1:3000`
 
-## Running the project <a name="running-the-project"></a>
->If you don't care to run the project locally, simply visit [https://mggwxyz.github.io/frontend-nanodegree-resume](https://mggwxyz.github.io/frontend-nanodegree-resume)
-
-1. Navigate to the `frontend-nanodegree-resume` directory that was created when downloading the project
-
-    ```
-    cd frontend-nanodegree-resume
-    ```
-2. Download node modules
-
-    ```
-    npm install
-    ```
-3. Start up a local web server
-
-    ```
-    npm start
-    ```
-4. Navigate to  [http://localhost:8080](http://localhost:8080) in you favorite browser
-
+## Helpful Links
+* [Online Demo](https://mggwxyz.github.io/frontend-nanodegree-resume)
+* [Source Code](https://github.com/mggwxyz/frontend-nanodegree-resume)
+* [Udacity Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001)

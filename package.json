@@ -1,14 +1,14 @@
 {
   "name": "frontend-nanodegree-resume",
   "version": "1.0.0",
-  "description": "A responsive resume for Udacity's Frontend Nanodegree",
+  "description": "A responsive resume for Udacity's Front-End Web Developer Nanodegree",
   "main": "index.js",
   "scripts": {
-    "start": "http-server"
+    "start": "npm i && http-server -o -p 3000"
   },
   "repository": {
     "type": "git",
-    "url": "https://mggwxyz.com/mggwxyz/frontend-nanodegree-resume"
+    "url": "https://github.com/mggwxyz/frontend-nanodegree-resume"
   },
   "keywords": [
     "resume",
