@@ -7,7 +7,6 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
-
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
@@ -30,37 +29,34 @@ var HTMLskillsStart = '<ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item skill %class%"><span>%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkEmployer = '<div class="work-employer">%data%';
+var HTMLworkTitle = ' - %data%</div>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<div class="project-title">%data%</div>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' - %data%</a>';
+var HTMLschoolName = '<div class="school-degree">%data%';
+var HTMLschoolDegree = ' - %data%</div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<p><br>Major: %data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineTitle = '<div class="online-title">%data%';
+var HTMLonlineSchool = ' - %data%</div>';
+var HTMLonlineDates = '<div class="date-text">%data%</div><br>';
 
-var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
 /*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
     $('button').click(function() {
@@ -70,9 +66,9 @@ $(document).ready(function() {
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
     clickLocations.push(
@@ -81,15 +77,12 @@ function logClicks(x,y) {
             y: y
         }
     );
-    console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
     // your code goes here!
     logClicks(loc.pageX, loc.pageY);
 });
-
-
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -115,7 +108,6 @@ function initializeMap() {
     appended to #mapDiv in resumeBuilder.js.
     */
     map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
 
     /*
     locationFinder() returns an array of every location string from the JSONs
@@ -178,7 +170,7 @@ function initializeMap() {
         // hmmmm, I wonder what this is about...
         google.maps.event.addListener(marker, 'click', function() {
             // your code goes here!
-            infowindow.open(map, marker);
+            infoWindow.open(map, marker);
         });
 
         // this is where the pin actually gets added to the map.
@@ -233,18 +225,18 @@ function initializeMap() {
     // the locations array
     pinPoster(locations);
 
-    }
+    /*
+    Uncomment the code below when you're ready to implement a Google Map!
+    */
 
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
+    // Calls the initializeMap() function when the page loads
+    // window.addEventListener('load', initializeMap);
 
-// Calls the initializeMap() function when the page loads
-// window.addEventListener('load', initializeMap);
+    // Vanilla JS way to listen for resizing of the window
+    // and adjust map bounds
+    window.addEventListener('resize', function(e) {
+        //Make sure the map bounds get updated on page resize
+        map.fitBounds(window.mapBounds);
+    });
+}
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-window.addEventListener('resize', function(e) {
-    //Make sure the map bounds get updated on page resize
-    map.fitBounds(mapBounds);
-});

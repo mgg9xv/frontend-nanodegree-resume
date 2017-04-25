@@ -254,6 +254,31 @@ span {
 
 .title:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+#map-title:hover {
+    cursor: pointer;
+}
+
+.project-title {
+    color: #3c7789;
+    font-weight: bold;
+}
+
+.school-degree {
+    color: #3c7789;
+    font-weight: bold;
+}
+
+.work-employer{
+    color: #3c7789;
+    font-weight: bold;
+}
+
+.online-title {
+    color: #3c7789;
+    font-weight: bold;
 }
 
 #lets-connect {
