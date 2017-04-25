@@ -19,7 +19,7 @@
     "frontend",
     "project"
   ],
-  "author": "Michael Gilbertson <mggwxyz@gmail.com> https://michaelgilbertson.io",
+  "author": "Michael Gilbertson <mggwxyz@gmail.com> (https://michaelgilbertson.io)",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^0.12.0",
