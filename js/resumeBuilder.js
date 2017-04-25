@@ -3,10 +3,8 @@ var bio = {
     'role': '&#60;!-- Web Developer --&#62;',
     'welcomeMessage': 'Welcome to my resume!',
     'contacts': {
-        'mobile': '703-343-3735',
         'email': 'mggwxyz@gmail.com',
         'github': 'mggwxyz',
-        'twitter': '@mggwxyz',
         'location': 'Washington DC'
     },
     'picture': 'images/my_picture.jpg',
@@ -23,17 +21,12 @@ var bio = {
         $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
         $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
         $('#header').prepend(HTMLbioPic.replace('%data%', bio.picture));
-        $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
         $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
         $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
-        $('#topContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
         $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
-        $('#footerContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
         $('#footerContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
         $('#footerContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
-        $('#footerContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
         $('#footerContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
-        // $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
         if(bio.skills.length > 0){
             $('#header').append(HTMLskillsStart);
             bio.skills.forEach(function(skill){
@@ -221,8 +214,3 @@ $(document).on('click', '#map-title', function(){
 });
 
 displayWork();
-
-/*
-I commented this out because it didn't look right on the screen and I didn't see any use in it
-$('#main').append(internationalizeButton);
-*/

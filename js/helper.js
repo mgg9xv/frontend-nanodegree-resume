@@ -7,7 +7,6 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
-
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
@@ -58,7 +57,6 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
@@ -81,15 +79,12 @@ function logClicks(x,y) {
             y: y
         }
     );
-    console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
     // your code goes here!
     logClicks(loc.pageX, loc.pageY);
 });
-
-
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -177,7 +172,7 @@ function initializeMap() {
         // hmmmm, I wonder what this is about...
         google.maps.event.addListener(marker, 'click', function() {
             // your code goes here!
-            infowindow.open(map, marker);
+            infoWindow.open(map, marker);
         });
 
         // this is where the pin actually gets added to the map.
@@ -232,18 +227,18 @@ function initializeMap() {
     // the locations array
     pinPoster(locations);
 
-    }
+    /*
+    Uncomment the code below when you're ready to implement a Google Map!
+    */
 
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
+    // Calls the initializeMap() function when the page loads
+    // window.addEventListener('load', initializeMap);
 
-// Calls the initializeMap() function when the page loads
-// window.addEventListener('load', initializeMap);
+    // Vanilla JS way to listen for resizing of the window
+    // and adjust map bounds
+    window.addEventListener('resize', function(e) {
+        //Make sure the map bounds get updated on page resize
+        map.fitBounds(window.mapBounds);
+    });
+}
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-window.addEventListener('resize', function(e) {
-    //Make sure the map bounds get updated on page resize
-    map.fitBounds(mapBounds);
-});
