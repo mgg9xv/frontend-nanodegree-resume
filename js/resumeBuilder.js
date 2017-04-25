@@ -1,7 +1,6 @@
 var bio = {
     'name': 'Michael Gilbertson',
     'role': '&#60;!-- Web Developer --&#62;',
-    'welcomeMessage': 'Welcome to my resume!',
     'contacts': {
         'email': 'mggwxyz@gmail.com',
         'github': 'mggwxyz',
@@ -142,8 +141,7 @@ var education = {
         {
             'title': 'JavaScript Basics',
             'school': 'Udacity',
-            'dates': 'February 2016 - April 2016',
-            'url': 'http://www.udacity.com'
+            'dates': 'February 2016 - April 2016'
         }
     ],
     'display': function() {
@@ -166,7 +164,6 @@ var education = {
             var formattedSchool = HTMLonlineSchool.replace('%data%', course.school);
             $('.education-entry:last').append(formattedTitle + formattedSchool);
             $('.education-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
-            $('.education-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
         });
     }
 };
